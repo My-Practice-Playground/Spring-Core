@@ -39,6 +39,9 @@ public class SpringBean implements BeanNameAware,BeanFactoryAware, ApplicationCo
     public void method(){
         System.out.println("Post Construct");
     }
-
+    @Override
+    public void afterPropertiesSet() throws Exception {
+        System.out.println("After properties set");
+    }
 }
 
