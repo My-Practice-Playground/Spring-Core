@@ -1,7 +1,9 @@
 package bean;
 
+import bean.inter.BeanInter;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
@@ -13,8 +15,14 @@ import javax.annotation.PreDestroy;
 
 @Component
 @Scope(ConfigurableBeanFactory.SCOPE_SINGLETON)
-public class SpringBean implements BeanNameAware, BeanFactoryAware, ApplicationContextAware, InitializingBean, DisposableBean {
-    public SpringBean() {
+public class SpringBeanOne implements BeanNameAware, BeanFactoryAware, ApplicationContextAware, InitializingBean, DisposableBean {
+    @Autowired
+    SpringBeanTwo springBeanTwo;
+
+    @Autowired
+    BeanInter beanInter;
+
+    public SpringBeanOne() {
         System.out.println("Spring bean Object created!");
     }
 
