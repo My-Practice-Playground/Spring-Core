@@ -1,10 +1,7 @@
 package bean;
 
 import org.springframework.beans.BeansException;
-import org.springframework.beans.factory.BeanFactory;
-import org.springframework.beans.factory.BeanFactoryAware;
-import org.springframework.beans.factory.BeanNameAware;
-import org.springframework.beans.factory.InitializingBean;
+import org.springframework.beans.factory.*;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
@@ -15,7 +12,7 @@ import javax.annotation.PostConstruct;
 
 @Component
 @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
-public class SpringBean implements BeanNameAware,BeanFactoryAware, ApplicationContextAware, InitializingBean {
+public class SpringBean implements BeanNameAware,BeanFactoryAware, ApplicationContextAware, InitializingBean, DisposableBean {
     public SpringBean() {
         System.out.println("Spring bean Object created!");
     }
@@ -42,6 +39,11 @@ public class SpringBean implements BeanNameAware,BeanFactoryAware, ApplicationCo
     @Override
     public void afterPropertiesSet() throws Exception {
         System.out.println("After properties set");
+    }
+
+    @Override
+    public void destroy() throws Exception {
+        System.out.println("Distroyed !");
     }
 }
 
