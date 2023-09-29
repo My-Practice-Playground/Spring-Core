@@ -9,9 +9,10 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 
 @Component
-@Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
+@Scope(ConfigurableBeanFactory.SCOPE_SINGLETON)
 public class SpringBean implements BeanNameAware,BeanFactoryAware, ApplicationContextAware, InitializingBean, DisposableBean {
     public SpringBean() {
         System.out.println("Spring bean Object created!");
@@ -33,12 +34,17 @@ public class SpringBean implements BeanNameAware,BeanFactoryAware, ApplicationCo
         System.out.println("Application context register");
     }
     @PostConstruct
-    public void method(){
-        System.out.println("Post Construct");
+    public void method1(){
+        System.out.println("Post-Construct");
     }
     @Override
     public void afterPropertiesSet() throws Exception {
         System.out.println("After properties set");
+    }
+
+    @PreDestroy
+    public void method2(){
+        System.out.println("Pre-distroy");
     }
 
     @Override

@@ -1,3 +1,4 @@
+import bean.SpringBean;
 import config.AppConfig;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -12,6 +13,8 @@ public class AppInitializer {
         }));
         ctx.register(AppConfig.class);
         ctx.refresh();
+
+        SpringBean springBean = ctx.getBean(SpringBean.class);
 
     }
 }
