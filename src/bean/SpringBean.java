@@ -13,7 +13,7 @@ import javax.annotation.PreDestroy;
 
 @Component
 @Scope(ConfigurableBeanFactory.SCOPE_SINGLETON)
-public class SpringBean implements BeanNameAware,BeanFactoryAware, ApplicationContextAware, InitializingBean, DisposableBean {
+public class SpringBean implements BeanNameAware, BeanFactoryAware, ApplicationContextAware, InitializingBean, DisposableBean {
     public SpringBean() {
         System.out.println("Spring bean Object created!");
     }
@@ -33,17 +33,19 @@ public class SpringBean implements BeanNameAware,BeanFactoryAware, ApplicationCo
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         System.out.println("Application context register");
     }
+
     @PostConstruct
-    public void method1(){
+    public void method1() {
         System.out.println("Post-Construct");
     }
+
     @Override
     public void afterPropertiesSet() throws Exception {
         System.out.println("After properties set");
     }
 
     @PreDestroy
-    public void method2(){
+    public void method2() {
         System.out.println("Pre-distroy");
     }
 
