@@ -1,6 +1,6 @@
-import bean.SpringBeanOne;
-import config.AppConfig;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+import java.util.Map;
 
 public class AppInitializer {
     public static void main(String[] args) {
@@ -11,11 +11,14 @@ public class AppInitializer {
                 ctx.close();
             }
         }));*/
-        ctx.registerShutdownHook();
-        ctx.register(AppConfig.class);
-        ctx.refresh();
+//        ctx.registerShutdownHook();
+//        ctx.register(AppConfig.class);
+//        ctx.refresh();
 
-        SpringBeanOne springBeanOne = ctx.getBean(SpringBeanOne.class);
+//        SpringBeanOne springBeanOne = ctx.getBean(SpringBeanOne.class);
+
+        Map<String, String> getenv = System.getenv();
+        getenv.keySet().forEach((e) -> System.out.println(e + " : " + getenv.get(e)));
 
     }
 }

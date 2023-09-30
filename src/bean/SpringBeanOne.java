@@ -4,6 +4,7 @@ import bean.inter.BeanInter;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
@@ -20,6 +21,7 @@ public class SpringBeanOne implements BeanNameAware, BeanFactoryAware, Applicati
     SpringBeanTwo springBeanTwo;
 
     @Autowired
+            @Qualifier("q1")
     BeanInter beanInter;
 
     public SpringBeanOne() {
