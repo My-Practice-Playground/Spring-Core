@@ -1,6 +1,7 @@
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import java.util.Map;
+import java.util.Properties;
 
 public class AppInitializer {
     public static void main(String[] args) {
@@ -20,5 +21,9 @@ public class AppInitializer {
         Map<String, String> getenv = System.getenv();
         getenv.keySet().forEach((e) -> System.out.println(e + " : " + getenv.get(e)));
 
+//      ------------------------------------------------------------------------------------
+
+        Properties properties = System.getProperties();
+        properties.keySet().forEach(e-> System.out.println(e+" : "+properties.getProperty((String) e)));
     }
 }
