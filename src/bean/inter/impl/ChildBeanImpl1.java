@@ -1,8 +1,10 @@
 package bean.inter.impl;
 
 import bean.inter.BeanInter;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Primary;
+import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -12,4 +14,6 @@ public class ChildBeanImpl1 implements BeanInter {
     public ChildBeanImpl1() {
         System.out.println("ChildBean1");
     }
+    @Autowired
+    Environment environment;
 }
