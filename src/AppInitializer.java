@@ -5,18 +5,22 @@ import java.util.Properties;
 
 public class AppInitializer {
     public static void main(String[] args) {
+
+        /*
         AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext();
-        /*Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
+        *//*Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
             @Override
             public void run() {
                 ctx.close();
             }
-        }));*/
-//        ctx.registerShutdownHook();
-//        ctx.register(AppConfig.class);
-//        ctx.refresh();
+        }));*//*
 
-//        SpringBeanOne springBeanOne = ctx.getBean(SpringBeanOne.class);
+        ctx.registerShutdownHook();
+        ctx.register(AppConfig.class);
+        ctx.refresh();
+
+        SpringBeanOne springBeanOne = ctx.getBean(SpringBeanOne.class);
+*/
 
         Map<String, String> getenv = System.getenv();
         getenv.keySet().forEach((e) -> System.out.println(e + " : " + getenv.get(e)));
@@ -24,6 +28,6 @@ public class AppInitializer {
 //      ------------------------------------------------------------------------------------
 
         Properties properties = System.getProperties();
-        properties.keySet().forEach(e-> System.out.println(e+" : "+properties.getProperty((String) e)));
+        properties.keySet().forEach(e -> System.out.println(e + " : " + properties.getProperty((String) e)));
     }
 }
